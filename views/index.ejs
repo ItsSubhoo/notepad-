@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/images/notpadlogp.png">
+  <title>notepad++</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="main w-screen min-h-screen bg-zinc-900 text-white px-20 pt-10 font">
+
+    <div class="title  rounded-md ">
+      <form action="/create" method="post">
+        <label class="ml-1 tracking-tighter  text-4xl">notepad++</label>
+        <input type="text " id="TitleInput" name="title"
+          class="mt-10 tracking-tighter w-full h-full bg-zinc-800 p-3 rounded-md text-white/90" placeholder="Tile..">
+        <textarea name="text" class="resize-none mt-2 p-3 w-full bg-zinc-800 rounded-md text-white/90"
+          placeholder="Type something here.."></textarea>
+        <button type="submit " class="bg-blue-600 text-sm px-3 py-1 rounded-md mt-3 font-semibold">Create</button>
+      </form>
+    </div>
+    <div class="tasks flex flex-wrap gap-7 mt-7">
+
+
+      <% if(files.length>0){
+
+        files.forEach(function(file){
+
+        %>
+
+        <div class="card bg-zinc-800/70 rounded-md inline-block px-4 py-2 ">
+          <h1 class="text-2xl  tracking-tighter">
+            <%=file%>
+          </h1>
+          <a href="/file/<%=file%>" class="text-blue-600 text-sm">read me.</a>
+        </div>
+        <% }) }else{ %>
+          <h3 class="text-zinc-400">Create files to access here..</h3>
+          <% }%>
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
